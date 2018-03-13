@@ -1,0 +1,77 @@
+---
+title       : Finding Anomalies with K-means
+subtitle    : With Shiny
+author      : Kyle
+job         : 
+framework   : html5slides        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : #selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Anomaly Detection
+
+- At work I anaylize software system data
+- Most of it isn't interesting, but occasionally something abnormal happens
+- My goal is to find out when that happens and why
+- To do this I look for anomalies
+
+```{r,echo=FALSE,fig.align='center',fig.height=3.9}
+x <- rnorm(100,mean=5,sd=1)
+x[1] <- x[1]+5
+y <- rnorm(100,mean=5,sd=1)
+y[1] <- y[1]+5
+plot(x[2:100],y[2:100],col="blue",main="Anomaly",xlab="X",ylab="Y",
+     xlim = c(1,12),ylim=c(1,12),pch=3)
+points(x=x[1],y=y[1],col="red",pch=7)
+
+```
+
+--- .class #1
+
+## How to find Anomalies in Data 
+- There are a couple ways to find them
+1. Density
+2. Distance
+3. Statistical Properties
+
+Density  | Distance | Statistical
+---------| ---------|------------
+LOF      | Kmeans   | Parametric Models
+CBOF     | Knn      | Mean, Var, Stdev
+DENLCUE  | LDOF     | Distribution Assumptions
+
+--- .class #2
+
+
+## Don't Fear!
+
+- Building some of the models mentioned is difficult
+- Luckily R has many models already made
+- Kmeans is an example
+- Caret also has a ton of built in functions for ML and Anomaly Detection
+
+--- .class #3
+
+## I'll help you get started
+
+- https://kgartrell.shinyapps.io/Finding_Anomalies/
+- That link goes to a shiny app that highlights Anomalies using Kmeans
+
+--- .class #4
+
+## Hopefully You Found This Interesting!
+
+- Good luck coming up with your own algorithms
+
+```{r}
+2+2
+```
+
+### Kindest Regards,
+### Kyle
+
+--- .class #5
+
